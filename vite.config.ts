@@ -12,9 +12,7 @@ export default defineConfig({
             refresh: true,
         }),
         tailwindcss(),
-        wayfinder({
-            formVariants: true,
-        }),
+        ...(process.env.NODE_ENV !== 'production' ? [wayfinder({ formVariants: true })] : []),
         vue({
             template: {
                 transformAssetUrls: {
